@@ -1,0 +1,20 @@
+{
+  "name": "react-components",
+  "version": "1.0.0",
+  "description": "Some simple react components I made and example usage",
+  "keywords": ["react"],
+  "main": "src/index.js",
+  "dependencies": {
+    "react": "16.3.2",
+    "react-dom": "16.3.2",
+    "react-scripts": "1.1.4",
+    "shortid": "2.2.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
