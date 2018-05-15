@@ -8,28 +8,32 @@ import './index.css';
 
 class App extends React.PureComponent {
   state = {
+    debug: false,
     buttons: [
       { children: 'Cancel', type: 'ghost' },
       { children: 'Discard', type: 'standard' },
       { children: 'Save Item', type: 'primary' }
     ],
-    className: 'menu-item'
+    btnClassName: 'menu-item'
   };
 
   sayMyName = e => alert(e.target.innerText);
 
   render() {
     return (
-      <Show when={this.state.buttons.length > 0}>
+      <React.Fragment>
         <nav className="menu">
           <List
             onClick={this.sayMyName}
-            className={this.state.className}
+            className={this.state.btnClassName}
             items={this.state.buttons}
             renderAs={Button}
           />
         </nav>
-      </Show>
+        <Show when={this.state.debug}>
+          {JSON.stringify(this.state.buttons)}
+        </Show>
+      </React.Fragment>
     );
   }
 }
