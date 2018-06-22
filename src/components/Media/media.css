@@ -1,0 +1,25 @@
+[data-media] {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 1em 0;
+  border: 1px solid #ddd;
+  padding: 0;
+}
+
+[data-media-body] {
+  flex: 1;
+  padding: 0;
+  margin: 0;
+}
+[data-media-body],
+[data-media-body]:last-child {
+  margin-bottom: 0;
+}
+
+[data-media-title] {
+  margin: 0 0 0.5rem 0;
+}
+
+[data-media='reverse'] > [data-media-figure] {
+  order: 1;
+}
