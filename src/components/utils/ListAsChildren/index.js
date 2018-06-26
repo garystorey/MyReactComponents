@@ -4,7 +4,7 @@ import id from 'shortid';
 
 const ListAsChildren = props => {
   return props.items.map(item => {
-    item.key = id.generate();
+    item.key = `listItem-${id.generate()}`;
     return props.children(item);
   });
 };

@@ -1,35 +1,38 @@
-import React from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import { render } from 'react-dom';
 
+import { Row, Column } from './components/utils/Grid';
 import Show from './components/utils/Show';
 import List from './components/utils/List';
 import ListAsChildren from './components/utils/ListAsChildren';
-import Grid, { Row } from './components/utils/Grid';
 
+import Mickey from './components/utils/Mouse';
+
+// These are just for showing the components
 import Button from './components/presentational/Button';
 import Media from './components/presentational/Media';
-
-// This one is just for showing that components
-// can be children to Media. Dont use it!!!
+// Never use this one!
 import Text from './components/presentational/Text';
 
 import * as styles from './index.css';
 
-class App extends React.PureComponent {
+class App extends PureComponent {
   state = {
-    debug: true,
+    debug: false,
+    showMouse: true,
     buttons: [
       { children: 'Cancel', type: 'ghost' },
       { children: 'Discard', type: 'standard' },
       { children: 'Save Item', type: 'primary' }
     ],
-    btnClassName: 'menu-item'
+    btnClassName: 'menu-item',
+    listClassName: 'list-item'
   };
 
   sayMyName = e => alert(e.target.innerText);
 
   render() {
-    let styleForName = {
+    let styleForText = {
       padding: '5px',
       margin: 0
     };
@@ -38,19 +41,18 @@ class App extends React.PureComponent {
     };
 
     return (
-      <React.Fragment>
-        <Grid.Row>
-          <Grid.Column />
-          <Grid.Column className="col50">
+      <Fragment>
+        <Row>
+          <Column>
             <Media
               direction="standard"
-              src="https://loremflickr.com/100/100/person"
+              src="http://loremflickr.com/150/150/person"
             >
-              <Text size="2.2rem" bgColor="var(--primary)">
-                <strong style={styleForName}>Anonymous User</strong>
+              <Text size="2.2rem" color="#fff" bgColor="var(--primary)">
+                <strong style={styleForText}>Anonymous User</strong>
               </Text>
               <Text size="1.8rem" color="#333">
-                <em style={styleForName}>A stupid tagline</em>
+                <em style={styleForText}>A stupid tagline</em>
               </Text>
               <Row style={rowStyle}>
                 <nav className={styles.menu}>
@@ -63,26 +65,38 @@ class App extends React.PureComponent {
                 </nav>
               </Row>
             </Media>
-          </Grid.Column>
-          <Grid.Column />
-        </Grid.Row>
-        <Row>
-          <Show when={this.state.debug}>
-            <ListAsChildren items={this.state.buttons}>
-              {item => (
-                <span
-                  className={this.state.btnClassName}
-                  key={item.key}
-                  onClick={() => alert('I aint a button beotch!')}
-                >
-                  <strong>{item.children}</strong> is a <em>{item.type}</em>{' '}
-                  button.
-                </span>
-              )}
-            </ListAsChildren>
-          </Show>
+          </Column>
         </Row>
-      </React.Fragment>
+        <Row
+          style={{
+            height: '1.5rem'
+          }}
+        />
+        <Row>
+          <Column>
+            <Show when={this.state.debug}>
+              <ListAsChildren items={this.state.buttons}>
+                {({ key, children, type }) => (
+                  <span className={this.state.listClassName} key={key}>
+                    <strong>{children}</strong> is a <em>{type}</em> button.
+                  </span>
+                )}
+              </ListAsChildren>
+            </Show>
+            <Show when={this.state.showMouse}>
+              <Mickey>
+                {({ x, y }) => {
+                  return (
+                    <div>
+                      {x}:{y}
+                    </div>
+                  );
+                }}
+              </Mickey>
+            </Show>
+          </Column>
+        </Row>
+      </Fragment>
     );
   }
 }

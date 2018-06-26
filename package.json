@@ -2,7 +2,7 @@
   "name": "react-components",
   "version": "1.0.0",
   "description": "Some simple react components I made and example usage",
-  "keywords": ["react"],
+  "keywords": ["non-production", "react", "component"],
   "main": "src/index.js",
   "dependencies": {
     "react": "16.3.2",

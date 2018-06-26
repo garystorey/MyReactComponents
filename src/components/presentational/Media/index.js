@@ -6,8 +6,8 @@ const Media = ({
   direction = 'standard',
   src = '',
   alt = '',
-  height = 150,
-  width = 150,
+  height = 115,
+  width = 115,
   children
 }) => {
   return (

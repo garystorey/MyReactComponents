@@ -2,7 +2,7 @@
 .row {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .column {
@@ -12,34 +12,5 @@
 @media screen and (min-width: 800px) {
   .column {
     flex: 1;
-  }
-  .col33 {
-    flex: 3.3;
-  }
-  .col66 {
-    flex: 6.6;
-  }
-
-  .col20 {
-    flex: 2;
-  }
-  .col40 {
-    flex: 4;
-  }
-  .col60 {
-    flex: 6;
-  }
-  .col80 {
-    flex: 8;
-  }
-
-  .col25 {
-    flex: 2.5;
-  }
-  .col50 {
-    flex: 5;
-  }
-  .col75 {
-    flex: 7.5;
   }
 }

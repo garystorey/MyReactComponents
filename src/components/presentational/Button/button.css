@@ -1,5 +1,6 @@
 [data-btn-type] {
   margin: 1rem;
+  padding: 0.3rem 0.7rem;
 }
 
 [data-btn-type='ghost'] {
@@ -18,16 +19,13 @@
 }
 
 [data-btn-size='small'] {
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 
 [data-btn-size='medium'] {
-  font-size: 1.6rem;
-  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
 }
 
 [data-btn-size='large'] {
-  padding: 1rem 3rem;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
