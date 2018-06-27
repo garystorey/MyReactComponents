@@ -11,6 +11,7 @@ import Mickey from './components/utils/Mouse';
 // These are just for showing the components
 import Button from './components/presentational/Button';
 import Media from './components/presentational/Media';
+import Card from './components/presentational/Card';
 // Never use this one!
 import Text from './components/presentational/Text';
 
@@ -87,8 +88,8 @@ class App extends PureComponent {
               <Mickey>
                 {({ x, y }) => {
                   return (
-                    <div>
-                      {x}:{y}
+                    <div className={this.state.listClassName}>
+                      X:{('00' + x).slice(-3)} Y:{('00' + y).slice(-3)}
                     </div>
                   );
                 }}
@@ -96,6 +97,18 @@ class App extends PureComponent {
             </Show>
           </Column>
         </Row>
+        <Row
+          style={{
+            height: '2.5rem'
+          }}
+        />
+        <Card
+          imgSrc="http://loremflickr.com/150/150/person"
+          title="My Title"
+          description="This is my description"
+          url="https://google.com"
+          author="Gary Storey"
+        />
       </Fragment>
     );
   }
