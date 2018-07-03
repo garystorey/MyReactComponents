@@ -14,7 +14,7 @@ class Card extends Component {
               href={this.props.url}
               aria-describedby="desc-another-card-instance"
             >
-              {this.props.header}
+              {this.props.title}
             </a>
           </h2>
           <p>{this.props.description}</p>

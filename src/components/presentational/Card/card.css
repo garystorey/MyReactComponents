@@ -1,9 +1,9 @@
-.cards > ul {
-  list-style: none;
+.card + .card {
+  margin-top: 1.5rem;
 }
 
 .card + .card {
-  margin-top: 1.5rem;
+  margin-top: 0;
 }
 
 .card {
@@ -13,6 +13,10 @@
   flex-direction: column;
   position: relative;
   cursor: pointer;
+  margin: 0 10px 20px 10px;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
 }
 
 .card .text {
@@ -27,7 +31,7 @@
 }
 
 .card .img {
-  height: 6.5rem;
+  height: 10.5rem;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 1rem));
 }
 
@@ -92,18 +96,3 @@
   border-radius: 0.25rem;
   text-align: center;
 }
-
-/*
-@supports (display: grid) {
-  .cards > ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 1.5rem;
-  }
-
-  .card + .card {
-    margin-top: 0;
-  }
-}
-*/

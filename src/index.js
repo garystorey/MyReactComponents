@@ -12,6 +12,7 @@ import Mickey from './components/utils/Mouse';
 import Button from './components/presentational/Button';
 import Media from './components/presentational/Media';
 import Card from './components/presentational/Card';
+import Article from './components/presentational/Article';
 // Never use this one!
 import Text from './components/presentational/Text';
 
@@ -86,10 +87,17 @@ class App extends PureComponent {
             </Show>
             <Show when={this.state.showMouse}>
               <Mickey>
-                {({ x, y }) => {
+                {({ x, y, getXY }) => {
                   return (
                     <div className={this.state.listClassName}>
                       X:{('00' + x).slice(-3)} Y:{('00' + y).slice(-3)}
+                      <br />
+                      <button
+                        type="button"
+                        onClick={() => alert(JSON.stringify(getXY))}
+                      >
+                        Show Current
+                      </button>
                     </div>
                   );
                 }}
@@ -102,13 +110,43 @@ class App extends PureComponent {
             height: '2.5rem'
           }}
         />
-        <Card
-          imgSrc="http://loremflickr.com/150/150/person"
-          title="My Title"
-          description="This is my description"
-          url="https://google.com"
-          author="Gary Storey"
-        />
+        <Row>
+          <Card
+            imgSrc="http://loremflickr.com/400/250"
+            title="My Title"
+            description="This is my description"
+            url="https://google.com"
+            author="Gary Storey"
+          />
+          <Card
+            imgSrc="http://loremflickr.com/400/200"
+            title="My Another Longer Title for Wrapping"
+            description="This is my other description of this other Card thats is a little bit longer than the other one."
+            url="https://google.com"
+            author="Gary Storey"
+          />
+        </Row>
+        <Article>
+          <Article.Image src="http://loremflickr.com/800/300/" />
+          <br clear="all" />
+          <Article.Heading>This is the Article Title</Article.Heading>
+          <Article.SubHeading>or Why write React components</Article.SubHeading>
+          <Article.Author
+            src="http://loremflickr.com/100/100/person"
+            name="Gary Storey"
+            url="http://garystorey.com"
+          />
+          <Article.P>
+            This is a paragraph of text. This is a another very interesting
+            sentence. You know the kind that make you want to keep reading. See?
+            I told you so....
+          </Article.P>
+          <Article.P>
+            This is a paragraph of text. This is a another very interesting
+            sentence. You know the kind that make you want to keep reading. See?
+            I told you so....
+          </Article.P>
+        </Article>
       </Fragment>
     );
   }
