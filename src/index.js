@@ -3,9 +3,7 @@ import { render } from 'react-dom';
 
 import { Row, Column } from './components/utils/Grid';
 import Show from './components/utils/Show';
-import List from './components/utils/List';
-import ListAsChildren from './components/utils/ListAsChildren';
-
+import Lister from './components/utils/List';
 import Mickey from './components/utils/Mouse';
 
 // These are just for showing the components
@@ -20,7 +18,7 @@ import * as styles from './index.css';
 
 class App extends PureComponent {
   state = {
-    debug: false,
+    debug: true,
     showMouse: true,
     buttons: [
       { children: 'Cancel', type: 'ghost' },
@@ -58,11 +56,11 @@ class App extends PureComponent {
               </Text>
               <Row style={rowStyle}>
                 <nav className={styles.menu}>
-                  <List
+                  <Lister
                     onClick={this.sayMyName}
                     className={this.state.btnClassName}
                     items={this.state.buttons}
-                    renderAs={Button}
+                    render={Button}
                   />
                 </nav>
               </Row>
@@ -71,20 +69,18 @@ class App extends PureComponent {
         </Row>
         <Row
           style={{
-            height: '1.5rem'
+            height: '2.5rem'
           }}
         />
         <Row>
           <Column>
-            <Show when={this.state.debug}>
-              <ListAsChildren items={this.state.buttons}>
-                {({ key, children, type }) => (
-                  <span className={this.state.listClassName} key={key}>
-                    <strong>{children}</strong> is a <em>{type}</em> button.
-                  </span>
-                )}
-              </ListAsChildren>
-            </Show>
+            <Lister items={this.state.buttons}>
+              {({ key, children, type }) => (
+                <span className={this.state.listClassName} key={key}>
+                  <strong>{children}</strong> is a <em>{type}</em> button.
+                </span>
+              )}
+            </Lister>
             <Show when={this.state.showMouse}>
               <Mickey>
                 {({ x, y, getXY }) => {
@@ -94,7 +90,7 @@ class App extends PureComponent {
                       <br />
                       <button
                         type="button"
-                        onClick={() => alert(JSON.stringify(getXY))}
+                        onClick={() => alert(JSON.stringify(getXY()))}
                       >
                         Show Current
                       </button>

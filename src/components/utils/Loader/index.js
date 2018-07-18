@@ -8,7 +8,7 @@ class Loader extends React.Component {
   };
 
   static initialState = {
-    loaded: this.isControlled ? this.props.url : false,
+    loaded: !!this.isControlled,
     toggle: () => {},
     data: []
   };
