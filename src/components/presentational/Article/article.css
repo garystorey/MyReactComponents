@@ -1,0 +1,78 @@
+[data-article] {
+  font-size: 1.85rem;
+  line-height: 1.7;
+  width: 80rem;
+  margin: 0 auto;
+}
+
+[data-article-heading] {
+  font-size: 3rem;
+  margin: 0;
+  text-align: left;
+}
+[data-article-subheading] {
+  margin: 0;
+  font-size: 2rem;
+  text-align: left;
+}
+[data-article-hero-image] {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 1rem;
+}
+
+[data-article-image] {
+  margin: 0;
+  padding: 0;
+}
+
+[data-article-seperator] {
+  margin: 2.5rem 0;
+}
+
+[data-article-author] {
+  float: right;
+  position: relative;
+  top: -150px;
+  left: -100px;
+}
+[data-article-author-image] {
+  width: 10rem;
+  border-radius: 50%;
+  border: 5px solid #fff;
+}
+[data-article-author-name] {
+  color: #333;
+  position: relative;
+  top: -35px;
+  text-align: center;
+  left: 20px;
+}
+
+[data-article-paragraph] {
+  margin-bottom: 1rem;
+}
+
+[data-article-quote] {
+  border-left: 2px solid #ddd;
+  float: right;
+  margin: 2.5rem 0.5rem 2.5rem 2.5rem;
+  padding: 1rem;
+}
+
+[data-article-quote]::before {
+  content: '';
+  display: table;
+}
+
+[data-article-quote]::after {
+  clear: both;
+}
+
+[data-article-quote] cite {
+  text-align: right;
+}
+[data-article-quote] cite::before {
+  content: '- ';
+}

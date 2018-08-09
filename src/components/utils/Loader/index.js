@@ -20,7 +20,7 @@ class Loader extends React.Component {
   state = this.initialState;
 
   toggle = on => {
-    this.state(prevState => {
+    this.setState(prevState => {
       return { loaded: !prevState.loaded };
     });
   };

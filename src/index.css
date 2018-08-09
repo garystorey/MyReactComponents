@@ -6,6 +6,9 @@
   --white: #fefefe;
   font-size: var(--scale);
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-size: 1.6rem;

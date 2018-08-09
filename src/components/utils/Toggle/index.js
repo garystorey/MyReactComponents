@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'porp-types';
+import PropTypes from 'prop-types';
 
 //render props
 //state/prop reducers

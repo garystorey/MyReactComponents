@@ -1,22 +1,19 @@
 import React, { PureComponent } from 'react';
 
 class Mickey extends PureComponent {
-  initialState = {
+  initialState = () => ({
     x: this.props.x || 0,
     y: this.props.y || 0
-  };
+  });
 
-  getXY = () => {};
+  getXY = () => ({ x: this.state.x, y: this.state.y });
 
   state = {
-    ...this.initialState,
-    getXY: () => {
-      return { x: this.state.x, y: this.state.y };
-    }
+    ...this.initialState(),
+    getXY: this.getXY
   };
 
   onMouseMove = event => {
-    event.preventDefault();
     this.setState({
       x: event.clientX,
       y: event.clientY

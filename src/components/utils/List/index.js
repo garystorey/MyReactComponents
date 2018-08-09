@@ -10,6 +10,7 @@ class List extends React.Component {
   };
 
   _isMounted = false;
+
   isControlled = () => this.props.render !== undefined;
 
   componentDidMount() {
@@ -18,23 +19,19 @@ class List extends React.Component {
   componentWillUnmount() {
     this._isMounted = false;
   }
-
+  shouldComponentUpdate() {
+    return this._isMounted;
+  }
   render() {
-    const len = this.props.limit ? this.props.limit : this.props.items.length;
+    const len = this.props.limit || this.props.items.length;
     return this.props.items.map((item, index) => {
+      item.key = item.key || id.generate();
       if (index <= len) {
-        if (this.isControlled()) {
-          return (
-            <this.props.render
-              {...this.props}
-              {...item}
-              key={`listitem-${id.generate()}`}
-            />
-          );
-        } else {
-          item.key = `listItem-${id.generate()}`;
-          return this.props.children(item);
-        }
+        return this.isControlled() ? (
+          <this.props.render {...item} {...this.props} />
+        ) : (
+          this.props.children(item)
+        );
       }
     });
   }

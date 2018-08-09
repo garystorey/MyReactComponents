@@ -3,17 +3,22 @@ import PropTypes from 'prop-types';
 import './grid.css';
 
 export function Row(props) {
-  const classes = props.className ? `row ${props.className}` : 'row';
+  let classes = props.seperator ? 'row row-seperator' : 'row';
+  classes = props.className ? `${props.className} ${classes}` : classes;
+  classes +=
+    props.span === 4
+      ? 'span4'
+      : props.span === 3
+        ? 'span3'
+        : props.span === 2
+          ? 'span2'
+          : '';
   return (
     <div {...props} className={classes}>
       {props.children}
     </div>
   );
 }
-
-Row.propTypes = {
-  classes: PropTypes.string
-};
 
 export function Column(props) {
   const classes = props.className ? `column ${props.className}` : 'column';
@@ -23,10 +28,6 @@ export function Column(props) {
     </div>
   );
 }
-
-Column.propTypes = {
-  classes: PropTypes.string
-};
 
 const Grid = { Row, Column };
 
