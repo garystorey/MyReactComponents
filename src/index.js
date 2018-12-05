@@ -54,7 +54,10 @@ class App extends PureComponent {
             </Row>
           </Column>
         </Row>
-        <Row seperator />
+        <Row>
+          <br />
+          <br />
+        </Row>
         <Row>
           <Column>
             <List items={this.state.buttons}>
@@ -81,7 +84,10 @@ class App extends PureComponent {
             </Show>
           </Column>
         </Row>
-        <Row seperator />
+        <Row>
+          <br />
+          <br />
+        </Row>
         <Row>
           <Card
             imgSrc="http://loremflickr.com/400/250"
@@ -99,9 +105,11 @@ class App extends PureComponent {
           />
         </Row>
 
-        <Row seperator />
-        <Row seperator />
-        <Row seperator />
+        <Row>
+          <br />
+          <br />
+          <br />
+        </Row>
         <Row>
           <Column>
             <Article published="2/1/2018">
@@ -123,7 +131,10 @@ class App extends PureComponent {
                 have a lot to discuss. After all, you are a client. I'm real
                 proud of you for coming, bro. I know you hate funerals.
               </Article.P>
-              <Article.Image src="http://loremflickr.com/250/100" />
+              <Article.Image
+                align="left"
+                src="http://loremflickr.com/250/100"
+              />
               <Article.P>
                 Get me a vodka rocks. And a piece of toast. There's so many
                 poorly chosen words in that sentence. I'm half machine. I'm a

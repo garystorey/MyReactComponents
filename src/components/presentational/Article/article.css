@@ -26,6 +26,14 @@
   margin: 0;
   padding: 0;
 }
+[data-article-image-align='right'] {
+  float: right;
+  margin: 0 2rem 2rem 2rem 2rem;
+}
+[data-article-image-align='left'] {
+  float: left;
+  margin: 2rem 2rem 2rem 0;
+}
 
 [data-article-seperator] {
   margin: 2.5rem 0;

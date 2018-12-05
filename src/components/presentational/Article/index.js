@@ -31,15 +31,9 @@ const Quote = props => (
 );
 
 const Image = ({ src, alt, align, caption, ...props }) => {
-  const styleObj =
-    align === 'right'
-      ? { float: 'right' }
-      : align === 'left'
-        ? { float: 'left' }
-        : { margin: 'auto' };
   return (
-    <figure data-article-image>
-      <img src={src} alt={alt} {...props} style={styleObj} />
+    <figure data-article-image data-article-image-align={align}>
+      <img src={src} alt={alt} {...props} />
       <figcaption>{caption}</figcaption>
     </figure>
   );
@@ -77,7 +71,7 @@ const Author = ({ src, name, url, ...props }) => (
 class Article extends React.Component {
   static propTypes = {
     author: PropTypes.oneOfType([PropTypes.func, PropTypes.instanceOf(Author)]),
-    published: PropTypes.datetime
+    published: PropTypes.string
   };
   static initialState = {
     isOpen: false
