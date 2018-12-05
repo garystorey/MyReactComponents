@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { Fragment, Component } from 'react';
 import { render } from 'react-dom';
 
 import { Row, Column } from './components/utils/Grid';
@@ -13,7 +13,7 @@ import Article from './components/presentational/Article';
 
 import * as styles from './index.css';
 
-class App extends PureComponent {
+class App extends Component {
   state = {
     showMouse: true,
     buttons: [
